@@ -1,0 +1,30 @@
+// Apply the java-library plugin to add support for Java Library
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+	compile 'org.springframework:spring-webmvc:4.0.0.RELEASE'
+	compile 'javax.servlet:jstl:1.2'
+    //testImplementation 'junit:junit:4.12'
+}
+
+jettyRun {
+	contextPath = 'spring4'
+	httpPort = 8080
+}
+
+jettyRunWar {
+	contextPath = 'spring4'
+	httpPort = 8080
+}
